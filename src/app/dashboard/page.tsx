@@ -1,3 +1,4 @@
+import Link from "next/link";
 const events = ["Party", "Camp", "Wedding", "Grad", "Show", "Trip"];
 
 export default function Dashboard() {
@@ -25,8 +26,9 @@ export default function Dashboard() {
 
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {events.map((label) => (
-                        <div
+                        <Link
                             key={label}
+                            href={`/folders/${label}`}
                             className="rounded-[2rem] border border-white/70 bg-white/35 p-5 shadow-xl shadow-fuchsia-300/30 backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/50"
                         >
                             <div className="mb-4 flex h-32 items-center justify-center rounded-3xl bg-white/50 text-6xl">
@@ -37,7 +39,7 @@ export default function Dashboard() {
                             <p className="mt-1 text-sm font-medium text-[#6f5b7a]">
                                 0 photos saved
                             </p>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </section>

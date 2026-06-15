@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function UserSignUp() {
     return (
         <main className="relative min-h-screen overflow-hidden text-[#34213f]">
@@ -50,19 +52,21 @@ export default function UserSignUp() {
                             />
                         </div>
 
-                        <button
-                            type="submit"
+                        <Link
+                            href="/user-login"
                             className="mt-2 rounded-full bg-[#ff4fc3] px-7 py-3 font-black text-white shadow-lg shadow-pink-300/60 transition hover:-translate-y-0.5 hover:bg-[#f23bb7]"
                         >
-                            Log In
-                        </button>
+                            Create Account
+                        </Link>
                     </form>
 
                     <p className="mt-6 text-center text-sm font-medium text-[#6f5b7a]">
                         Already have an account?{" "}
-                        <span className="font-black text-fuchsia-600">
-                            Login
-                        </span>
+                        <Link className="font-black text-fuchsia-600"
+                            href="/user-login"
+                        >
+                            Log In Here
+                        </Link>
                     </p>
                 </div>
             </section>

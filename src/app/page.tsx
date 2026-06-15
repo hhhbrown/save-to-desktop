@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
     return (
         <main className="relative min-h-screen overflow-hidden text-[#34213f]">
@@ -29,13 +31,19 @@ export default function Home() {
                         </p>
 
                         <div className="mt-8 flex flex-wrap gap-4">
-                            <button className="rounded-full bg-[#ff4fc3] px-7 py-3 font-black text-white shadow-lg shadow-pink-300/60 transition hover:-translate-y-0.5">
+                            <Link
+                                href="/user-login"
+                                className="rounded-full bg-[#ff4fc3] px-7 py-3 font-black text-white shadow-lg shadow-pink-300/60 transition hover:-translate-y-0.5"
+                                > 
                                 Log In
-                            </button>
+                            </Link>
 
-                            <button className="rounded-full border border-white/80 bg-white/50 px-7 py-3 font-black text-[#4a2c5c] shadow-sm backdrop-blur transition hover:-translate-y-0.5">
+                            <Link 
+                                href="/user-signup"
+                                className="rounded-full border border-white/80 bg-white/50 px-7 py-3 font-black text-[#4a2c5c] shadow-sm backdrop-blur transition hover:-translate-y-0.5"
+                                >
                                 Create an Account
-                            </button>
+                            </Link>
                         </div>
                     </div>
 
