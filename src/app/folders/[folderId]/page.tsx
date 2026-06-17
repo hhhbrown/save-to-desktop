@@ -1,18 +1,10 @@
-const mockPhotos = [
-    { id: 1, name: "IMG_001.jpg", status: "pending" },
-    { id: 2, name: "IMG_002.jpg", status: "pending" },
-    { id: 3, name: "IMG_003.jpg", status: "approved" },
-];
+import { Background } from "@/components/Background";
+import { SurfaceCard } from "@/components/SurfaceCard";
+import { mockPhotos, type MockPhoto } from "@/lib/mockData";
 
 export default function FolderPage() {
     return (
-        <main className="relative min-h-screen overflow-hidden text-[#34213f]">
-            <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: "url('/background6.jpg')" }}
-            />
-            <div className="absolute inset-0 bg-white/35" />
-
+        <Background>
             <section className="relative z-10 mx-auto max-w-6xl px-6 py-10">
                 <div className="mb-8 flex items-center justify-between">
                     <div>
@@ -27,24 +19,30 @@ export default function FolderPage() {
                     </button>
                 </div>
 
-                <div className="mb-8 rounded-[2rem] border border-white/70 bg-white/40 p-6 shadow-xl backdrop-blur-xl">
+                <SurfaceCard className="mb-8">
                     <p className="mb-2 text-sm font-bold text-[#6f5b7a]">
                         Guest upload link
                     </p>
                     <div className="rounded-xl bg-white/70 p-4 font-bold">
                         save-to-desktop.com/upload/event-title
                     </div>
-                </div>
+                </SurfaceCard>
 
                 <div className="grid gap-6 lg:grid-cols-2">
-                    <PhotoSection title="Pending Photos" photos={mockPhotos.filter(p => p.status === "pending")} />
-                    <PhotoSection title="Approved Photos" photos={mockPhotos.filter(p => p.status === "approved")} />
+                    <PhotoSection
+                        title="Pending Photos"
+                        photos={mockPhotos.filter((p) => p.status === "pending")}
+                    />
+                    <PhotoSection
+                        title="Approved Photos"
+                        photos={mockPhotos.filter((p) => p.status === "approved")}
+                    />
                     <button className="rounded-full bg-[#ff4fc3] px-6 py-3 font-black text-white shadow-lg shadow-pink-300/60">
                         Rejected Photos
                     </button>
                 </div>
             </section>
-        </main>
+        </Background>
     );
 }
 
@@ -53,10 +51,10 @@ function PhotoSection({
     photos,
 }: {
     title: string;
-    photos: { id: number; name: string; status: string }[];
+    photos: MockPhoto[];
 }) {
     return (
-        <div className="rounded-[2rem] border border-white/70 bg-white/40 p-6 shadow-xl backdrop-blur-xl">
+        <SurfaceCard>
             <h2 className="mb-4 text-2xl font-black">{title}</h2>
 
             <div className="space-y-3">
@@ -80,6 +78,6 @@ function PhotoSection({
                     </div>
                 ))}
             </div>
-        </div>
+        </SurfaceCard>
     );
 }
