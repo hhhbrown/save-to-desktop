@@ -45,8 +45,8 @@ export default function Home() {
                         </div>
 
                         <div className="grid grid-cols-3 gap-3">
-                            {mockFolders.map((label) => (
-                                <FolderCard key={label} label={label} compact />
+                            {mockFolders.map((folder) => (
+                                <FolderCard key={folder.id} label={folder.name} compact />
                             ))}
                         </div>
                     </DesktopWindow>
