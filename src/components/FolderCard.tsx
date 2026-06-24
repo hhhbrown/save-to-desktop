@@ -13,22 +13,18 @@ export function FolderCard({
     photoCount,
     compact = false,
 }: FolderCardProps) {
+    const iconClass = compact
+        ? "mb-2 flex h-16 items-center justify-center border-2 border-[#321034] bg-[#fff8a8] text-3xl shadow-[3px_3px_0_#321034]"
+        : "mb-4 flex h-28 items-center justify-center border-2 border-[#321034] bg-[#fff8a8] text-6xl shadow-[4px_4px_0_#321034]";
+
     const content = (
         <>
-            <div
-                className={
-                    compact
-                        ? "mb-2 flex h-16 items-center justify-center rounded-xl bg-white/60 text-2xl"
-                        : "mb-4 flex h-32 items-center justify-center rounded-3xl bg-white/50 text-6xl"
-                }
-            >
-                📁
-            </div>
+            <div className={iconClass}>📁</div>
             <h2 className={compact ? "text-xs font-black" : "text-xl font-black"}>
                 {label}
             </h2>
             {photoCount !== undefined && (
-                <p className="mt-1 text-sm font-medium text-[#6f5b7a]">
+                <p className="mt-1 text-sm font-black text-[#7f2f86]">
                     {photoCount} photos saved
                 </p>
             )}
@@ -39,7 +35,7 @@ export function FolderCard({
         return (
             <Link
                 href={href}
-                className="rounded-[2rem] border border-white/70 bg-white/35 p-5 shadow-xl shadow-fuchsia-300/30 backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/50"
+                className="border-2 border-[#321034] bg-[#fff7fd] p-4 shadow-[6px_6px_0_#321034] transition hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-white hover:shadow-[8px_8px_0_#321034]"
             >
                 {content}
             </Link>
@@ -47,7 +43,7 @@ export function FolderCard({
     }
 
     return (
-        <div className="rounded-2xl bg-gradient-to-br from-pink-200 to-sky-200 p-3 shadow-sm">
+        <div className="border-2 border-[#321034] bg-[#9ee7ff] p-3 shadow-[4px_4px_0_#321034]">
             {content}
         </div>
     );

@@ -25,12 +25,14 @@ export default async function FolderPage({ params }: FolderPageProps) {
     return (
         <Background>
             <section className="relative z-10 mx-auto max-w-6xl px-6 py-10">
-                <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                <div className="mb-8 flex flex-col gap-5 border-2 border-[#321034] bg-[#9ee7ff] p-4 shadow-[6px_6px_0_#321034] sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                        <p className="text-sm font-bold uppercase tracking-[0.25em] text-fuchsia-600">
+                        <p className="text-sm font-black uppercase tracking-[0.25em] text-[#7f2f86]">
                             Folder
                         </p>
-                        <h1 className="text-5xl font-black">{displayName}</h1>
+                        <h1 className="text-5xl font-black [text-shadow:3px_3px_0_#fff8a8]">
+                            {displayName}
+                        </h1>
                         {folder && (
                             <p className="mt-2 font-bold text-[#6f5b7a]">
                                 {folder.eventDate} · {folder.photoCount} photos saved
@@ -38,7 +40,7 @@ export default async function FolderPage({ params }: FolderPageProps) {
                         )}
                     </div>
 
-                    <button className="rounded-full bg-[#ff4fc3] px-6 py-3 font-black text-white shadow-lg shadow-pink-300/60 transition hover:-translate-y-0.5">
+                    <button className="border-2 border-[#321034] bg-[#ff4fc3] px-5 py-3 font-black uppercase tracking-wide text-white shadow-[4px_4px_0_#321034] transition hover:-translate-x-0.5 hover:-translate-y-0.5">
                         Publish Gallery
                     </button>
                 </div>
@@ -49,7 +51,7 @@ export default async function FolderPage({ params }: FolderPageProps) {
                             <p className="mb-2 text-sm font-bold text-[#6f5b7a]">
                                 Guest upload link
                             </p>
-                            <div className="rounded-xl bg-white/70 p-4 font-bold">
+                            <div className="border-2 border-[#321034] bg-white p-4 font-black shadow-[3px_3px_0_#321034]">
                                 save-to-desktop.com/upload/{uploadToken}
                             </div>
                         </div>
@@ -90,14 +92,14 @@ function PhotoSection({
         <SurfaceCard>
             <div className="mb-4 flex items-center justify-between gap-4">
                 <h2 className="text-2xl font-black">{title}</h2>
-                <span className="rounded-full bg-white/70 px-3 py-1 text-sm font-black text-fuchsia-600">
+                <span className="border-2 border-[#321034] bg-[#fff8a8] px-3 py-1 text-sm font-black text-[#321034] shadow-[3px_3px_0_#321034]">
                     {photos.length}
                 </span>
             </div>
 
             <div className="space-y-3">
                 {photos.length === 0 && (
-                    <div className="rounded-2xl border border-dashed border-fuchsia-300 bg-white/45 p-5 text-sm font-bold text-[#6f5b7a]">
+                    <div className="border-2 border-dashed border-[#321034] bg-[#ffe8f7] p-5 text-sm font-bold text-[#6f5b7a]">
                         {emptyLabel}
                     </div>
                 )}
@@ -105,7 +107,7 @@ function PhotoSection({
                 {photos.map((photo) => (
                     <div
                         key={photo.id}
-                        className="rounded-2xl bg-white/60 p-4 shadow-sm"
+                        className="border-2 border-[#321034] bg-white p-4 shadow-[4px_4px_0_#321034]"
                     >
                         <div className="flex items-start justify-between gap-4">
                             <div>
@@ -114,17 +116,17 @@ function PhotoSection({
                                     Uploaded by {photo.uploadedBy}
                                 </p>
                             </div>
-                            <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-black uppercase text-sky-600">
+                            <span className="border-2 border-[#321034] bg-[#9ee7ff] px-3 py-1 text-xs font-black uppercase text-[#321034]">
                                 {photo.status}
                             </span>
                         </div>
 
                         {photo.status === "pending" && (
                             <div className="mt-3 flex gap-2">
-                                <button className="rounded-full bg-pink-500 px-4 py-2 text-sm font-bold text-white shadow-md shadow-pink-200 transition hover:-translate-y-0.5">
+                                <button className="border-2 border-[#321034] bg-[#ff4fc3] px-4 py-2 text-sm font-black text-white shadow-[3px_3px_0_#321034] transition hover:-translate-x-0.5 hover:-translate-y-0.5">
                                     Approve
                                 </button>
-                                <button className="rounded-full bg-white px-4 py-2 text-sm font-bold text-[#4a2c5c] transition hover:-translate-y-0.5">
+                                <button className="border-2 border-[#321034] bg-[#fff8a8] px-4 py-2 text-sm font-black text-[#4a2c5c] shadow-[3px_3px_0_#321034] transition hover:-translate-x-0.5 hover:-translate-y-0.5">
                                     Reject
                                 </button>
                             </div>

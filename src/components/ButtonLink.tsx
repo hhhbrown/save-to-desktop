@@ -6,10 +6,8 @@ type ButtonLinkProps = ComponentProps<typeof Link> & {
 };
 
 const variants = {
-    primary:
-        "bg-[#ff4fc3] text-white shadow-lg shadow-pink-300/60 hover:bg-[#f23bb7]",
-    secondary:
-        "border border-white/80 bg-white/50 text-[#4a2c5c] shadow-sm backdrop-blur hover:bg-white/65",
+    primary: "bg-[#ff4fc3] text-white hover:bg-[#ff83d8]",
+    secondary: "bg-[#fff8a8] text-[#321034] hover:bg-white",
 };
 
 export function ButtonLink({
@@ -19,7 +17,7 @@ export function ButtonLink({
 }: ButtonLinkProps) {
     return (
         <Link
-            className={`inline-flex items-center justify-center rounded-full px-7 py-3 font-black transition hover:-translate-y-0.5 ${variants[variant]} ${className}`}
+            className={`inline-flex items-center justify-center border-2 border-[#321034] px-5 py-3 font-black uppercase tracking-wide shadow-[4px_4px_0_#321034] transition hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_#321034] active:translate-x-1 active:translate-y-1 active:shadow-[2px_2px_0_#321034] ${variants[variant]} ${className}`}
             {...props}
         />
     );

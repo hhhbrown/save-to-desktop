@@ -8,13 +8,13 @@ export default function UserLogin() {
     return (
         <Background>
             <section className="relative z-10 flex min-h-screen items-center justify-center px-6 py-8">
-                <SurfaceCard className="w-full max-w-md p-8 shadow-2xl shadow-fuchsia-300/40">
+                <SurfaceCard className="w-full max-w-md p-8">
                     <div className="mb-8 text-center">
-                        <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-fuchsia-600">
+                        <p className="mb-3 text-sm font-black uppercase tracking-[0.25em] text-[#7f2f86]">
                             Welcome back
                         </p>
 
-                        <h1 className="text-5xl font-black tracking-tight">
+                        <h1 className="text-5xl font-black tracking-normal [text-shadow:3px_3px_0_#9ee7ff]">
                             Log In
                         </h1>
 
@@ -46,7 +46,7 @@ export default function UserLogin() {
                     <p className="mt-6 text-center text-sm font-medium text-[#6f5b7a]">
                         New here?{" "}
                         <Link
-                            className="font-black text-fuchsia-600"
+                            className="font-black text-[#d4149d] underline decoration-2 underline-offset-4"
                             href="/user-signup"
                         >
                             Create an account

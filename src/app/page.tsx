@@ -6,17 +6,17 @@ import { mockFolders } from "@/lib/mockData";
 
 export default function Home() {
     return (
-        <Background overlayClassName="bg-white/40">
+        <Background>
             <section className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col px-6 py-8">
                 <div className="grid flex-1 items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
                     <div>
-                        <p className="mb-4 inline-block rounded-full border border-white/70 bg-white/50 px-4 py-2 text-sm font-bold shadow-sm backdrop-blur">
-                            ✨ Event photo collection
+                        <p className="mb-4 inline-block rotate-[-2deg] border-2 border-[#321034] bg-[#fff8a8] px-3 py-2 text-sm font-black uppercase tracking-wide shadow-[4px_4px_0_#321034]">
+                            ★ Event photo collection
                         </p>
 
-                        <h1 className="text-6xl font-black tracking-tight sm:text-7xl lg:text-8xl">
+                        <h1 className="max-w-3xl text-6xl font-black tracking-normal text-[#321034] [text-shadow:4px_4px_0_#9ee7ff] sm:text-7xl lg:text-8xl">
                             Save to
-                            <span className="block bg-gradient-to-r from-fuchsia-600 to-sky-500 bg-clip-text text-transparent">
+                            <span className="block text-[#ff4fc3] [text-shadow:4px_4px_0_#321034]">
                                 Desktop
                             </span>
                         </h1>
@@ -36,7 +36,7 @@ export default function Home() {
                     </div>
 
                     <DesktopWindow title="My Event Photos">
-                        <div className="mb-4 rounded-2xl border-2 border-dashed border-fuchsia-300 bg-white/70 p-7 text-center">
+                        <div className="mb-4 border-2 border-dashed border-[#321034] bg-[#ffe8f7] p-7 text-center shadow-[4px_4px_0_#321034]">
                             <p className="text-5xl">💾</p>
                             <p className="mt-2 text-lg font-black">Drop photos here</p>
                             <p className="text-sm font-medium text-[#765982]">
