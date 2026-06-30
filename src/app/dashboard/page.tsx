@@ -1,9 +1,33 @@
+"use client";
+
 import { Background } from "@/components/Background";
 import { ButtonLink } from "@/components/ButtonLink";
 import { FolderCard } from "@/components/FolderCard";
-import { mockFolders } from "@/lib/mockData";
+import { useState, useEffect } from "react";
 
 export default function Dashboard() {
+
+    type Folder = {
+        organizerId: string;
+        folderId: string;
+        name: string;
+        uploadToken: string;
+        createdAt: string;
+    };
+
+    const [folders, setFolders] = useState<Folder[]>([]);
+
+    useEffect(() => {
+        async function loadFolders() {
+            const response = await fetch("/api/folders");
+            const data = await response.json();
+            setFolders(data.folders);
+        }
+
+        loadFolders();
+    }, []);
+
+
     return (
         <Background>
             <section className="relative z-10 mx-auto max-w-6xl px-6 py-10">
@@ -21,12 +45,12 @@ export default function Dashboard() {
                 </div>
 
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {mockFolders.map((folder) => (
+                    {folders.map((folder) => (
                         <FolderCard
-                            key={folder.id}
-                            href={`/folders/${folder.id}`}
+                            key={folder.folderId}
+                            href={`/folders/${folder.folderId}`}
                             label={folder.name}
-                            photoCount={folder.photoCount}
+                            photoCount={0} // temporary until the Photos table exists
                         />
                     ))}
                 </div>
