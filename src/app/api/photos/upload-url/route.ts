@@ -9,9 +9,9 @@ const maxSize = 10 * 1024 * 1024; // 10 MB
 
 export async function POST(request: NextRequest) {
     try {
-        const { eventId, fileType, fileSize } = await request.json();
+        const { folderId, fileType, fileSize } = await request.json();
 
-        if (!eventId || !fileType || typeof fileSize !== "number" || fileSize <= 0) {
+        if (!folderId || !fileType || typeof fileSize !== "number" || fileSize <= 0) {
             return NextResponse.json({ error: "Missing fields" }, { status: 400 });
         }
 
@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
 
         const photoId = randomUUID();
         const extension = fileType.split("/")[1];
-        const key = `events/${eventId}/photos/${photoId}.${extension}`;
+        const key = `events/${folderId}/photos/${photoId}.${extension}`;
 
         const command = new PutObjectCommand({
             Bucket: process.env.S3_BUCKET_NAME!,
